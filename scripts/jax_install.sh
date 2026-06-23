@@ -158,7 +158,7 @@ module purge
 module load rhel9/default-dawn
 source /usr/local/dawn/software/external/intel-oneapi/2025.2.1/setvars.sh
 
-if [[ -z "${ZE_FLAT_DEVICE_HIERARCHY}" ]]; then
+if [[ -z "\${ZE_FLAT_DEVICE_HIERARCHY}" ]]; then
     export ZE_FLAT_DEVICE_HIERARCHY="FLAT"
 fi 
 EOF
