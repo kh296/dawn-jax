@@ -1,4 +1,4 @@
-# Installing conda on Dawn
+# Installing JAX on Dawn
 
 ## 1. Introduction
 
@@ -16,10 +16,10 @@ The material collected here is licensed under the
 ## 2. Installation
 
 In case you don't already have your own `conda` installation, you can find
-guidance at:
+guidance for installing `conda` on Dawn at:
 - [https://github.com/kh296/dawn-conda](https://github.com/kh296/dawn-conda)
 
-Installation of Jax may be performed
+Installation of JAX may be performed
 [via a Slurm job](#21-installation-via-a-slurm-job) or
 [from the command line](#22-installation-from-the-command-line).
 
@@ -32,23 +32,24 @@ git clone https://github.com/kh296/dawn-jax
 cd dawn-jax/scripts
 ```
 
-Submit a Slurm job to run the script:
+Submit a Slurm job to run the installation script:
 ```
 # Substitute for <project_account> a valid project account.
 # Substitute for <partition> a valid partition.
 # Set CONDA_INSTALL to the path of your conda installation.
-sbatch --account=<project_account> --partition=<partition> --export=CONDA_INSTALL="~/miniforge3" ./install_jax.sh
+sbatch --account=<project_account> --partition=<partition> --export=CONDA_INSTALL="~/miniforge3" ./jax_install.sh
 ```
 
 Once it starts running, the script should take about five minutes to
 complete.  The job output is written to `jax_install.log`.  If the
 installation is successful, the output includes results from minimal
-checks that (1) the allocated GPU(s) are visible and (2) an array can be
-created.  The last line of the output is the command to set up the environment
-for using `JAX`.  This command references the file `../envs/jax-setup.sh`,
+checks that the allocated GPU(s) are visible, and that an array can be
+created.  These checks produce warnings, but shouldn't produce errors.  The
+last line of the output is the command to set up the environment
+for using JAX.  This command references the file `../envs/jax-setup.sh`,
 created during installation.
 
-### 2.1 Installation from the command line
+### 2.2 Installation from the command line
 
 On a Dawn compute node, clone this repository, and move to
 the scripts directory:
@@ -67,9 +68,10 @@ CONDA_INSTALL="~/miniforge3" ./jax_install.sh |& tee jax_install.log
 
 Output is written both to terminal and to the file `jax_install.log`.
 If the installation is successful, the output includes results from minimal
-checks that (1) the allocated GPU(s) are visible and (2) an array can be
-created.  The last line of the output is the command to set up the environment
-for using `JAX`.  This command references the file `../envs/jax-setup.sh`,
+checks that the allocated GPU(s) are visible, and that an array can be
+created.  These checks produce warnings, but shouldn't produce errors.  The
+last line of the output is the command to set up the environment
+for using JAX.  This command references the file `../envs/jax-setup.sh`,
 created during installation.
 
 ## 3. Further information
@@ -78,10 +80,10 @@ Installation of `JAX` on Dawn is based on the installation for
 [Accelerated JAX on Intel GPU](https://github.com/intel/intel-extension-for-openxla/blob/main/docs/acc_jax.md), with compatible package versions taken
 from the [intel-extension-for-openxla PyPI documentation](https://pypi.org/project/intel-extension-for-openxla/).
 
-The installation script [install_jax.sh](scripts/install_jax.sh) provides
-some additional functionality, including allowing installation to a
+The installation script [scripts/jax_install.sh](scripts/jax_install.sh)
+provides several options, for example allowing installation to a
 `conda` environment with a name different from the default (`jax`).  For
-more information, from the `scripts` directory use:
+more information, from the `scripts` directory run:
 ```
 ./jax_install.sh -h
 ```
