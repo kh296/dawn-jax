@@ -135,6 +135,7 @@ ENVS_DIR=$(realpath ..)/envs
 mkdir -p ${ENVS_DIR}
 SETUP="${ENVS_DIR}/${CONDA_ENV}-setup.sh"
 DAWN_SETUP="/dev/null"
+AAC6_SETUP="/dev/null"
 MACOS_SETUP="/dev/null"
 if [[ "Dawn" == "${SYSTEM}" ]]; then
     DAWN_SETUP="${SETUP}"
