@@ -105,6 +105,7 @@ while [[ $# -gt 0 ]]; do
         -l)
             if [[ -n "$2" && "$2" != -* ]]; then
                 CONDA_LINK="$2"
+                NO_LINK="false"
                 shift 2
             else
                 NO_LINK="true"
