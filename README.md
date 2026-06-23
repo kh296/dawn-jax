@@ -35,12 +35,11 @@ cd dawn-jax/scripts
 Submit a Slurm job to run the installation script:
 ```
 # Substitute for <project_account> a valid project account.
-# Substitute for <partition> a valid partition.
 # Set CONDA_INSTALL to the path of your conda installation.
-sbatch --account=<project_account> --partition=<partition> --export=CONDA_INSTALL="~/miniforge3" ./jax_install.sh
+sbatch --account=<project_account> --export=CONDA_INSTALL="~/miniforge3" ./jax_install.sh
 ```
 
-Once it starts running, the script should take about five minutes to
+Once it starts running, the script should take about ten minutes to
 complete.  The job output is written to `jax_install.log`.  If the
 installation is successful, the output includes results from minimal
 checks that the allocated GPU(s) are visible, and that an array can be
@@ -60,8 +59,6 @@ cd dawn-jax/scripts
 
 Run the installation script:
 ```
-# Substitute for <project_account> a valid project account.
-# Substitute for <partition> a valid partition.
 # Set CONDA_INSTALL to the path of your conda installation.
 CONDA_INSTALL="~/miniforge3" ./jax_install.sh |& tee jax_install.log
 ```
