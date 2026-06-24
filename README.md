@@ -82,6 +82,7 @@ For example, to add `pandas`, starting from the `scripts` directory, use:
  ```
 source ../envs/jax-setup.sh
 pip install pandas
+```
 
 The installation script [scripts/jax_install.sh](scripts/jax_install.sh)
 provides several options, for example allowing installation to a
