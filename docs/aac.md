@@ -13,7 +13,7 @@ first follow the guidance for [Installing conda on AMD Accelerator Cluster](http
 
 On AAC6, after following the guidance of
 [Installing JAX on Dawn](../README.md)
-for obtaining the `JAX` installation script, an example submission command is:
+for obtaining the JAX installation script, an example submission command is:
 ```
 # Set CONDA_INSTALL to the path of your conda installation.
 sbatch --partition=1CN192C4G1H_MI300A_Ubuntu22  --cpus-per-gpu=48 --export=CONDA_INSTALL="~/miniforge3" ./jax_install.sh
