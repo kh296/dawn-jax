@@ -74,8 +74,14 @@ created during installation.
 ## 3. Further information
 
 Installation of `JAX` on Dawn is based on the installation for
-[Accelerated JAX on Intel GPU](https://github.com/intel/intel-extension-for-openxla/blob/main/docs/acc_jax.md), with compatible package versions taken
-from the [intel-extension-for-openxla PyPI documentation](https://pypi.org/project/intel-extension-for-openxla/).
+[Accelerated JAX on Intel GPU](https://github.com/intel/intel-extension-for-openxla/blob/main/docs/acc_jax.md), with latest compatible package versions taken
+from the [intel-extension-for-openxla PyPI documentation](https://pypi.org/project/intel-extension-for-openxla/).  If you want to install additional
+packages, the suggested approach is to set up the `conda` environment for
+using JAX, and then install the additional packages with `pip` or `conda`.
+For example, to add `pandas`, starting from the `scripts` directory, use:
+ ```
+source ../envs/jax-setup.sh
+pip install pandas
 
 The installation script [scripts/jax_install.sh](scripts/jax_install.sh)
 provides several options, for example allowing installation to a
@@ -84,3 +90,15 @@ more information, from the `scripts` directory run:
 ```
 ./jax_install.sh -h
 ```
+
+The setup script `envs/setup-pytorch-setup.sh`, created during installation,
+performs all environment setup needed to use JAX,
+including making available compatible versions of oneAPI libraries:
+```
+# Perform environment setup for using JAX.
+# Substitue for <setup script> the path to the setup script.
+source <setup script>
+```
+The script generally shouldn't be combined with system scripts and
+modules for environment setup.  In particular, none of the system modules
+for `conda` setup or for oneAPI setup should be loaded.
