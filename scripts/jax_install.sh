@@ -231,7 +231,7 @@ elif [[ "MacOS" == "${SYSTEM}" ]]; then
 fi
 echo ""
 if [[ "aac6" == "${SYSTEM}" ]]; then
-    CMD="python -m pip install 'jax[rocm7-local]' flax optax"
+    CMD="python -m pip install --upgrade 'jax[rocm7-local]' flax optax"
 else
     CMD="python -m pip install jax==0.5.0 jaxlib==0.5.0 flax==0.10.0 optax==0.2.4"
 fi
