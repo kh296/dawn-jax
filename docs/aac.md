@@ -18,3 +18,7 @@ for obtaining the JAX installation script, an example submission command is:
 # Set CONDA_INSTALL to the path of your conda installation.
 sbatch --partition=1CN192C4G1H_MI300A_Ubuntu22  --cpus-per-gpu=48 --export=CONDA_INSTALL="~/miniforge3" ./jax_install.sh
 ```
+Installation of JAX on AAC6 using
+[scripts/jax_install.sh](../scripts/jax_install.sh)
+is based on the documentation for
+[pip installation: AMD GPU (ROCm)](https://docs.jax.dev/en/latest/installation.html#pip-installation-amd-gpu-rocm).
