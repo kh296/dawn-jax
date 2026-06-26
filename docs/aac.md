@@ -9,7 +9,7 @@ to specify the account, but it is necessary to specify the partition,
 and the resources.
 
 In case you don't already have your own `conda` installation,
-first follow the guidance for [Installing conda on AMD Accelerator Cluster](https://github.com/kh296/dawn-conda).
+first follow the guidance for [Installing conda on AMD Accelerator Cluster](https://github.com/kh296/dawn-conda/blob/main/docs/aac.md).
 
 On AAC6, after following the guidance of
 [Installing JAX on Dawn](../README.md)
